@@ -315,8 +315,8 @@ public class forgotPage extends javax.swing.JFrame {
                     //Gets the email and password from the appropriate Column
                     tableName = rs.getString("name");
                     tableEmail = rs.getString("email");
-                    tableQuestion = rs.getString("security_question");
-                    tableAnswer = rs.getString("security_answer");
+                    tableQuestion = rs.getString("security question");
+                    tableAnswer = rs.getString("security answer");
                     tableAddress = rs.getString("address");
                     
                 }

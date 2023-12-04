@@ -251,8 +251,8 @@ public class Login extends javax.swing.JFrame {
                 tableEmail = rs.getString("email");
                 tablePassword = rs.getString("password");
                 String tableName = rs.getString("name");
-                String tableQuestion = rs.getString("security_question");
-                String tableAnswer = rs.getString("security_answer");
+                String tableQuestion = rs.getString("security question");
+                String tableAnswer = rs.getString("security answer");
                 String tableAddress = rs.getString("address");
             }
             // Checks if the user typed the correct login details
