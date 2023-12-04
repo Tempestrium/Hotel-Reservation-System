@@ -45,7 +45,7 @@ public class signUp extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(720, 1280));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        exitBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/exit.jpg"))); // NOI18N
+        exitBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/exit.jpg"))); // NOI18N
         exitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exitBtnActionPerformed(evt);
@@ -133,6 +133,11 @@ public class signUp extends javax.swing.JFrame {
         forgotPassBtn.setFont(new java.awt.Font("Georgia", 0, 12)); // NOI18N
         forgotPassBtn.setForeground(new java.awt.Color(255, 255, 255));
         forgotPassBtn.setText("Forgot Password?");
+        forgotPassBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forgotPassBtnActionPerformed(evt);
+            }
+        });
         getContentPane().add(forgotPassBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 790, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Georgia", 3, 48)); // NOI18N
@@ -145,10 +150,10 @@ public class signUp extends javax.swing.JFrame {
         jLabel3.setText("Stay once, carry memories forever");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 120, -1, -1));
 
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/image-530x510.jpg"))); // NOI18N
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/image-530x510.jpg"))); // NOI18N
         getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 330, 530, 490));
 
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login1.jpg"))); // NOI18N
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/login1.jpg"))); // NOI18N
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 1280));
 
         pack();
@@ -188,7 +193,16 @@ public class signUp extends javax.swing.JFrame {
 
     private void logInBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logInBtnActionPerformed
         // log in function
+        Login loginPage = new Login();
+        loginPage.show();
+        dispose();
     }//GEN-LAST:event_logInBtnActionPerformed
+
+    private void forgotPassBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forgotPassBtnActionPerformed
+        // TODO add your handling code here:
+        forgotPage forgotPage = new forgotPage();
+        forgotPage.setVisible(true);
+    }//GEN-LAST:event_forgotPassBtnActionPerformed
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */

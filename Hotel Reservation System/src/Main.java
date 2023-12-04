@@ -168,8 +168,8 @@ public class Main extends javax.swing.JFrame {
 
     private void signBtnActionPerformed(java.awt.event.ActionEvent evt) {
         // Add the signup redirect here
-        signUp signUp = new signUp();
-        signUp.show();
+        signUp signUpPage = new signUp();
+        signUpPage.show();
         dispose();
     }
 
