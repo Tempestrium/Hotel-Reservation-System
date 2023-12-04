@@ -279,7 +279,7 @@ public class Login extends javax.swing.JFrame {
 
     private void signUpMouseClicked(java.awt.event.MouseEvent evt) {
         // Add the signup page redirect here
-        sigUp sigUp = new signUp();
+        signUp signUp = new signUp();
         signUp.show();
         dispose();
     }
