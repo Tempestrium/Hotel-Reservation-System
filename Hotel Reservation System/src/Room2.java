@@ -2,7 +2,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package booking;
 
 import java.awt.Color;
 import javax.swing.JScrollPane;
@@ -158,24 +157,14 @@ public class Room2 extends javax.swing.JFrame {
         jPanel6.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgmc.setBackground(new java.awt.Color(255, 255, 255));
-        imgmc.setIcon(new javax.swing.ImageIcon("C:\\Users\\kingr\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication1\\src\\booking\\imgs\\m2.png")); // NOI18N
+        imgmc.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/m2.png"))); // NOI18N
         jPanel6.add(imgmc, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 40, -1, -1));
         jPanel6.add(mcurrent, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 30, 220, 140));
 
         previous.setFont(new java.awt.Font("Garamond", 1, 100)); // NOI18N
         previous.setForeground(new java.awt.Color(255, 255, 255));
         previous.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        previous.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/C:/Users/kingr/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/booking/imgs/previous.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        previous.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/previous.png"))); // NOI18N
         previous.setMaximumSize(new java.awt.Dimension(80, 80));
         previous.setMinimumSize(new java.awt.Dimension(80, 80));
         previous.setPreferredSize(new java.awt.Dimension(50, 80));
@@ -189,17 +178,7 @@ public class Room2 extends javax.swing.JFrame {
         next.setFont(new java.awt.Font("Garamond", 1, 100)); // NOI18N
         next.setForeground(new java.awt.Color(255, 255, 255));
         next.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        next.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/C:/Users/kingr/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/booking/imgs/next.png")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        next.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/next.png"))); // NOI18N
         next.setMaximumSize(new java.awt.Dimension(80, 80));
         next.setMinimumSize(new java.awt.Dimension(80, 80));
         next.setPreferredSize(new java.awt.Dimension(50, 80));
@@ -217,18 +196,18 @@ public class Room2 extends javax.swing.JFrame {
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imgmn.setBackground(new java.awt.Color(255, 255, 255));
-        imgmn.setIcon(new javax.swing.ImageIcon("C:\\Users\\kingr\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication1\\src\\booking\\imgs\\m3.png")); // NOI18N
+        imgmn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/m3.png"))); // NOI18N
         jPanel4.add(imgmn, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 20, -1, -1));
         jPanel4.add(mnext, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 10, 220, 140));
 
         imgmp.setBackground(new java.awt.Color(255, 255, 255));
-        imgmp.setIcon(new javax.swing.ImageIcon("C:\\Users\\kingr\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication1\\src\\booking\\imgs\\m1.png")); // NOI18N
+        imgmp.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/m1.png"))); // NOI18N
         jPanel4.add(imgmp, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, -1, -1));
         jPanel4.add(mprevious, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, 220, 140));
 
         jPanel5.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 150));
 
-        png1.setIcon(new javax.swing.ImageIcon("C:\\Users\\kingr\\OneDrive\\Documents\\NetBeansProjects\\JavaApplication1\\src\\booking\\imgs\\2.png")); // NOI18N
+        png1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/2.png"))); // NOI18N
         jPanel5.add(png1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 129, -1, -1));
 
         getContentPane().add(jPanel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 80, 1080, 590));
@@ -237,17 +216,7 @@ public class Room2 extends javax.swing.JFrame {
         Hotel.setText("Hotel");
         getContentPane().add(Hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 160, -1));
 
-        background.setIcon(new javax.swing.JLabel() {
-            public javax.swing.Icon getIcon() {
-                try {
-                    return new javax.swing.ImageIcon(
-                        new java.net.URL("file:/C:/Users/kingr/OneDrive/Documents/NetBeansProjects/JavaApplication1/src/booking/imgs/gray-background-3.jpg")
-                    );
-                } catch (java.net.MalformedURLException e) {
-                }
-                return null;
-            }
-        }.getIcon());
+        background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imgs/gray-background-3.jpg"))); // NOI18N
         getContentPane().add(background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 720));
 
         pack();

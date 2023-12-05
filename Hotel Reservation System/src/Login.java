@@ -257,8 +257,8 @@ public class Login extends javax.swing.JFrame {
             }
             // Checks if the user typed the correct login details
             if ((email.equals(tableEmail)) && (password.equals(tablePassword))) {
-                Main mainPage = new Main();
-                mainPage.show();
+                Room1 roomPage = new Room1();
+                roomPage.show();
                 dispose();
             } else {
                 emailTf.setText("");
