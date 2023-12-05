@@ -92,7 +92,7 @@ public class Room1 extends javax.swing.JFrame {
         Hotel.setText("Hotel");
         getContentPane().add(Hotel, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 10, 160, -1));
 
-        jPanel5.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel5.setBackground(new java.awt.Color(49, 48, 77));
         jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jPanel3.setBackground(new java.awt.Color(204, 204, 204));
@@ -144,7 +144,7 @@ public class Room1 extends javax.swing.JFrame {
 
         jPanel5.add(borderbox, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, 370, 480));
 
-        border.setBackground(new Color(48, 49, 77, 120));
+        border.setBackground(new Color(48, 49, 77, 200));
         jPanel5.add(border, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 410, 520));
 
         jPanel6.setBackground(new java.awt.Color(22, 26, 48));
@@ -186,7 +186,7 @@ public class Room1 extends javax.swing.JFrame {
 
         jPanel5.add(jPanel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1080, 180));
 
-        jPanel4.setBackground(java.awt.Color.lightGray);
+        jPanel4.setBackground(new java.awt.Color(22, 26, 48));
         jPanel4.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(153, 153, 153), new java.awt.Color(153, 153, 153)));
         jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
