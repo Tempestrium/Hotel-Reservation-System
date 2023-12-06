@@ -165,14 +165,15 @@ public class signUp extends javax.swing.JFrame {
         String name = nameText.getText();
         String email = emailText.getText();
         String password = new String(passText.getPassword());
-        String security  = (String) jComboBox1.getSelectedItem();
+        Object item  = jComboBox1.getSelectedItem();
+        String security = item.toString();
         String answer = answerText.getText();
         String address = addressText.getText();
         
             try (Connection connection = DBUtil.mycon();                 
                 Statement s = connection.createStatement()){
                 
-                s.executeUpdate("INSERT INTO usertable (name, email, password, security, answer, address) "
+                s.executeUpdate("INSERT INTO usertable (name, email, password, security question, security answer, address) "
                     + "VALUES ('" +name+ "', '" +email+ "', '" +password+ "', '" +security+ "', '" +answer+ "', '" +address+ "')");
                 
                 JOptionPane.showMessageDialog(rootPane, "Your Account Created, You can now Log In");
