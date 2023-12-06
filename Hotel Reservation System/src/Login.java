@@ -30,8 +30,8 @@ public class Login extends javax.swing.JFrame {
         
         try {
             //Open Connection to MySQL
-            Class.forName("com.mysql.jdbc.Driver");
-            con = DriverManager.getConnection("jdbc:mysql://localhost/users","root","");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users","root","");
             
         }catch(ClassNotFoundException ex){
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,7 +60,7 @@ public class Login extends javax.swing.JFrame {
         passwordField = new javax.swing.JPasswordField();
         jSeparator2 = new javax.swing.JSeparator();
         logBtn = new javax.swing.JButton();
-        forgetLbl = new javax.swing.JLabel();
+        signUp = new javax.swing.JLabel();
         forgetLbl1 = new javax.swing.JLabel();
         forgetLbl2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -130,14 +130,24 @@ public class Login extends javax.swing.JFrame {
         });
         smallPanel.add(logBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 330, 100, 40));
 
-        forgetLbl.setFont(new java.awt.Font("Georgia Pro Light", 1, 13)); // NOI18N
-        forgetLbl.setForeground(new java.awt.Color(204, 204, 204));
-        forgetLbl.setText("Sign Up");
-        smallPanel.add(forgetLbl, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 50, -1));
+        signUp.setFont(new java.awt.Font("Georgia Pro Light", 1, 13)); // NOI18N
+        signUp.setForeground(new java.awt.Color(204, 204, 204));
+        signUp.setText("Sign Up");
+        signUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                signUpMouseClicked(evt);
+            }
+        });
+        smallPanel.add(signUp, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 460, 50, -1));
 
         forgetLbl1.setFont(new java.awt.Font("Georgia Pro Light", 0, 13)); // NOI18N
         forgetLbl1.setForeground(new java.awt.Color(204, 204, 204));
         forgetLbl1.setText("Forgot Password?");
+        forgetLbl1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                forgetLbl1MouseClicked(evt);
+            }
+        });
         smallPanel.add(forgetLbl1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 110, -1));
 
         forgetLbl2.setFont(new java.awt.Font("Georgia Pro Light", 0, 13)); // NOI18N
@@ -225,35 +235,52 @@ public class Login extends javax.swing.JFrame {
 
     private void logBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logBtnActionPerformed
         // Login:
+        //Gets the input from the text fields
         String email = emailTf.getText();
         String password = new String(passwordField.getPassword());
-        
+        String tableEmail = null;
+        String tablePassword = null;
         try{
             // Selects the Usertable
-            pst = con.prepareStatement("SELECT * FROM usertable");
+            pst = con.prepareStatement("SELECT * FROM usertable WHERE email='"+email+"'");
             rs = pst.executeQuery();
-            
+
             while(rs.next())
             {
                 //Gets the email and password from the appropriate Column
-                String tableEmail = rs.getString("email");
-                String tablePassword = rs.getString("password");
-                
-                //Checks if the user typed the correct login details
-                if((email.equals(tableEmail)) && (password.equals(tablePassword))){
-                    Main mainPage = new Main();
-                    mainPage.show();
-                    dispose();
-                }else{
-                    JOptionPane.showMessageDialog(this, "Email or Password is Incorrect");
-                    emailTf.setText("");
-                    passwordField.setText("");
-                }
+                tableEmail = rs.getString("email");
+                tablePassword = rs.getString("password");
             }
+                //Checks if the user typed the correct login details
+            if((email.equals("admin") && (password.equals("admin")))){
+                //Redirects to the admin only page
+                dispose();
+            }else if((email.equals(tableEmail)) && (password.equals(tablePassword))){
+                Room1 roomPage = new Room1();
+                roomPage.show();
+                dispose();
+            }else{
+                emailTf.setText("");
+                passwordField.setText("");
+                JOptionPane.showMessageDialog(this, "Email or Password is Incorrect");
+                }
         }catch(SQLException ex){
             Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex); 
         }
     }//GEN-LAST:event_logBtnActionPerformed
+
+    private void forgetLbl1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_forgetLbl1MouseClicked
+        // Redirects to forgot page when clicked
+        forgotPage forgotPage = new forgotPage();
+        forgotPage.setVisible(true);
+    }//GEN-LAST:event_forgetLbl1MouseClicked
+
+    private void signUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_signUpMouseClicked
+        // Redirects to sign up page when clicked
+        signUp signUpPage = new signUp();
+        signUpPage.show();
+        dispose();
+    }//GEN-LAST:event_signUpMouseClicked
 
     /**
      * @param args the command line arguments
@@ -294,7 +321,6 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel bigPanel;
     private javax.swing.JPanel colorPanel;
     private javax.swing.JTextField emailTf;
-    private javax.swing.JLabel forgetLbl;
     private javax.swing.JLabel forgetLbl1;
     private javax.swing.JLabel forgetLbl2;
     private javax.swing.JLabel imgLbl;
@@ -309,6 +335,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JButton logBtn;
     private javax.swing.JPasswordField passwordField;
+    private javax.swing.JLabel signUp;
     private javax.swing.JPanel smallPanel;
     // End of variables declaration//GEN-END:variables
 }
