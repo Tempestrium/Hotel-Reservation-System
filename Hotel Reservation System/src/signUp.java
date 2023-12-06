@@ -173,8 +173,8 @@ public class signUp extends javax.swing.JFrame {
             try (Connection connection = DBUtil.mycon();                 
                 Statement s = connection.createStatement()){
                 
-                s.executeUpdate("INSERT INTO usertable (name, email, password, security question, security answer, address) "
-                    + "VALUES ('" +name+ "', '" +email+ "', '" +password+ "', '" +security+ "', '" +answer+ "', '" +address+ "')");
+                s.executeUpdate("INSERT INTO usertable (name, email, password, `security question`, `security answer`, address) "
+             + "VALUES ('" + name + "', '" + email + "', '" + password + "', '" + security + "', '" + answer + "', '" + address + "')");
                 
                 JOptionPane.showMessageDialog(rootPane, "Your Account Created, You can now Log In");
             } catch (SQLException e) {
