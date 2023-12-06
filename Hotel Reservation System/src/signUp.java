@@ -170,6 +170,11 @@ public class signUp extends javax.swing.JFrame {
         String answer = answerText.getText();
         String address = addressText.getText();
         
+        if(name.isEmpty() || email.isEmpty() || password.isEmpty() || answer.isEmpty() || address.isEmpty() || security.isEmpty()){
+        JOptionPane.showMessageDialog(this, "Please make sure all fields are filled out");
+        return;
+        }else{
+                    
             try (Connection connection = DBUtil.mycon();                 
                 Statement s = connection.createStatement()){
                 
@@ -185,6 +190,8 @@ public class signUp extends javax.swing.JFrame {
             
             }   
             
+        }
+
                                                         
     }                                         
 
