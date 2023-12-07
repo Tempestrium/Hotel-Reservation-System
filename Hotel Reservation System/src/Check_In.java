@@ -1,4 +1,3 @@
-package check_in_final;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -330,8 +329,6 @@ public class Check_In extends javax.swing.JFrame {
             }
         });
 
-        jLabel18.setIcon(new javax.swing.ImageIcon("C:\\Users\\RENZ\\Documents\\NetBeansProjects\\Check_In_Final\\picture\\398373496_665459882435747_4003610856221124408_n.png")); // NOI18N
-
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -417,7 +414,7 @@ public class Check_In extends javax.swing.JFrame {
         jLabel15.setText("Room Type/Price");
 
         jRoomTypePrice.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jRoomTypePrice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWIN DELUXE ROOM -- $400", "TWIN EXCLUSIVE ROOM -- $500", "KING DELUXE ROOM -- $700", "KING EXCLUSIVE ROOM -- $800", "KING DELUXE SUITE -- $1200", "KING EXCLUSIVE SUIT -- $1500" }));
+        jRoomTypePrice.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "TWIN DELUXE ROOM -- ₱5,000", "TWIN EXCLUSIVE ROOM -- ₱10,000", "KING DELUXE ROOM -- ₱12,000", "KING EXCLUSIVE ROOM -- ₱15,000", "KING DELUXE SUITE -- ₱20,000", "KING EXCLUSIVE SUIT -- ₱25,000" }));
 
         jLabel21.setFont(new java.awt.Font("Georgia", 0, 18)); // NOI18N
         jLabel21.setText("Room Number");
@@ -449,7 +446,7 @@ public class Check_In extends javax.swing.JFrame {
         jLabel22.setText("ADDITIONALS:");
 
         jAdditionals.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jAdditionals.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Room Upgrade --- $30 to $100 per night", "Breakfast Inclusion --- $30 per person", "Fitness and Wellness Classes --- $30 per person", "In-Room Dining Packages --- $80 per person", "Wellness and Spa Packages  --- $120 per person", "Laundry and Dry-Cleaning Services  --- $110 per day", "Special Occasion Packages  --- $350 per day", " " }));
+        jAdditionals.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "Room Upgrade --- ₱500 to ₱5,000 per night", "Breakfast Inclusion --- ₱500 per person", "Fitness and Wellness Classes --- ₱500 per person", "In-Room Dining Packages --- ₱800 per person", "Wellness and Spa Packages  --- ₱5,250 per person", "Laundry and Dry-Cleaning Services  --- ₱250 per day", "Special Occasion Packages  --- ₱10,000 per day", " " }));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
