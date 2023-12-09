@@ -1,4 +1,3 @@
-
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -10,8 +9,9 @@ import java.sql.*;
 import javax.swing.JOptionPane;
 import java.sql.DriverManager;
 import java.text.SimpleDateFormat;
-
-
+import java.sql.ResultSet;
+import java.sql.PreparedStatement;
+import static javax.swing.JOptionPane.ERROR_MESSAGE;
 
 public class Check_In extends javax.swing.JFrame {
  
@@ -24,12 +24,12 @@ public class Check_In extends javax.swing.JFrame {
     public Check_In() {
         initComponents();
         this.setTitle("Check - In");
-        this.setLocationRelativeTo(null);
-       
+        this.setLocationRelativeTo(null);       
     }
     
     Connection con = null;
     PreparedStatement pst = null;
+    ResultSet rs = null;
   
     
 
@@ -84,9 +84,9 @@ public class Check_In extends javax.swing.JFrame {
         jSubmitBtn = new javax.swing.JButton();
         jClearBtn = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        jCheckin = new com.toedter.calendar.JDateChooser();
-        jCheckout = new com.toedter.calendar.JDateChooser();
         jAdditionals = new javax.swing.JComboBox<>();
+        jCheckIn = new com.toedter.calendar.JDateChooser();
+        jCheckOut = new com.toedter.calendar.JDateChooser();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -122,7 +122,7 @@ public class Check_In extends javax.swing.JFrame {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(475, Short.MAX_VALUE)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(448, 448, 448))
         );
@@ -467,13 +467,13 @@ public class Check_In extends javax.swing.JFrame {
                             .addComponent(jRoomNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jAdditionals, javax.swing.GroupLayout.PREFERRED_SIZE, 257, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(35, 35, 35)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel17)
                             .addComponent(jLabel16)
-                            .addComponent(jCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jCheckIn, javax.swing.GroupLayout.DEFAULT_SIZE, 137, Short.MAX_VALUE)
+                            .addComponent(jCheckOut, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(254, 254, 254)
                 .addComponent(jClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -487,6 +487,16 @@ public class Check_In extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(0, 66, Short.MAX_VALUE)
+                        .addComponent(jLabel17)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jCheckIn, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(38, 38, 38)
+                        .addComponent(jLabel16)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCheckOut, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(167, 167, 167))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel5Layout.createSequentialGroup()
                         .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -504,17 +514,7 @@ public class Check_In extends javax.swing.JFrame {
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jClearBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jSubmitBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(0, 66, Short.MAX_VALUE)
-                        .addComponent(jLabel17)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckin, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(jLabel16)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jCheckout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(153, 153, 153))))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -556,8 +556,7 @@ public class Check_In extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -577,9 +576,9 @@ public class Check_In extends javax.swing.JFrame {
          
        
          try{
-            String query = "INSERT INTO `checkin`(`name`, `phone`, `email`, `address`, `city`, `nationality`, `gender`, `cardnumber`, `cvccode`, `roomtypeprice`, `roomnumber`, `checkin`, `checkout`, `additionals`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO `checkinform`(`name`, `phone`, `email`, `address`, `city`, `nationality`, `gender`, `cardnumber`, `cvccode`, `roomtypeprice`, `roomnumber`, `checkin`, `checkout`, `additionals`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             
-            con = DriverManager.getConnection("jdbc:mysql://localhost/checkinform", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usertable", "root", "password");
             
             pst = con.prepareStatement(query);
             pst.setString(1, jName.getText());
@@ -594,10 +593,10 @@ public class Check_In extends javax.swing.JFrame {
             pst.setString(10, jRoomTypePrice.getSelectedItem().toString());
             pst.setString(11, jRoomNumber.getSelectedItem().toString());
             SimpleDateFormat checkin = new SimpleDateFormat("yyyy-MM-dd");
-            String datein = checkin.format(jCheckin.getDate());
+            String datein = checkin.format(jCheckIn.getDate());
             pst.setString(12,datein);
             SimpleDateFormat checkout = new SimpleDateFormat("yyyy-MM-dd");
-            String dateout = checkout.format(jCheckout.getDate());
+            String dateout = checkout.format(jCheckOut.getDate());
             pst.setString(13,dateout);
             pst.setString(14, jAdditionals.getSelectedItem().toString());
             
@@ -670,8 +669,8 @@ public class Check_In extends javax.swing.JFrame {
         jCardNumber.setText("");
         jCVCCode.setText("");
         jRoomTypePrice.setSelectedItem(false);
-        jCheckin.setCalendar(null);
-        jCheckout.setCalendar(null);
+        jCheckIn.setCalendar(null);
+        jCheckOut.setCalendar(null);
         jRoomNumber.setSelectedItem("");
         jAdditionals.setSelectedItem(false);
         
@@ -680,12 +679,11 @@ public class Check_In extends javax.swing.JFrame {
 
     private void jPhoneKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPhoneKeyTyped
         // TODO add your handling code here:
-        
         //Input Numbers Only
         char phone = evt.getKeyChar();
         if(!Character.isDigit(phone)){
             evt.consume();
-            JOptionPane.showMessageDialog(null, "Input Numbers Only");
+            JOptionPane.showMessageDialog(null, ERROR_MESSAGE);
         }
       
     }//GEN-LAST:event_jPhoneKeyTyped
@@ -753,8 +751,8 @@ public class Check_In extends javax.swing.JFrame {
     private javax.swing.JTextField jAddress;
     private javax.swing.JTextField jCVCCode;
     private javax.swing.JTextField jCardNumber;
-    private com.toedter.calendar.JDateChooser jCheckin;
-    private com.toedter.calendar.JDateChooser jCheckout;
+    private com.toedter.calendar.JDateChooser jCheckIn;
+    private com.toedter.calendar.JDateChooser jCheckOut;
     private javax.swing.JTextField jCity;
     private javax.swing.JButton jClearBtn;
     private javax.swing.JTextField jEmail;
