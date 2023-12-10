@@ -13,7 +13,7 @@ public class DBUtil {
 
     private static final Logger LOGGER = Logger.getLogger(DBUtil.class.getName());
 
-    private DBUtil() {
+    DBUtil() {
         throw new AssertionError("Utility class should not be instantiated");
     }
 

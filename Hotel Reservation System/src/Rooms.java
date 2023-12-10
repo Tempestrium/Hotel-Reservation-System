@@ -22,11 +22,13 @@ public class Rooms extends javax.swing.JFrame {
     ResultSet Rs= null;
     Statement St= null; 
     private DBUtil DBUtil;
+    private final DBUtil DbUtil;
     /**
      * Creates new form Rooms
 //     */
     public Rooms() {
         initComponents();
+        this.DbUtil = new DBUtil();
         ShowRooms();
         
     
