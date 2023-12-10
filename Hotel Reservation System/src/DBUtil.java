@@ -2,10 +2,12 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.TableModel;
 
 public class DBUtil {
 
@@ -41,5 +43,9 @@ public class DBUtil {
             LOGGER.log(Level.SEVERE, "Error establishing database connection", ex);
             throw new SQLException("Error establishing database connection", ex);
         }
+    }
+
+    TableModel resultSetToTable(ResultSet Rs) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
         }

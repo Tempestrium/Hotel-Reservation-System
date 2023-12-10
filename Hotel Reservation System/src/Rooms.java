@@ -21,6 +21,7 @@ public class Rooms extends javax.swing.JFrame {
     PreparedStatement Pst = null;
     ResultSet Rs= null;
     Statement St= null; 
+    private DBUtil DBUtil;
     /**
      * Creates new form Rooms
 //     */
@@ -358,10 +359,10 @@ public class Rooms extends javax.swing.JFrame {
     private void ShowRooms(){
         try{
              Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usertable","root","password");
-//             St = (Statement) Con.createStatement();
+             St = (Statement) Con.createStatement();
              Rs = St.executeQuery("select * from roomstbl");
-             RoomsList.setModel(DbUtil.resultSetToTable(Rs));
-        }catch (Exception e){
+             RoomsList.setModel(DBUtil.resultSetToTable(Rs));
+        }catch (SQLException e){
             e.printStackTrace(); 
             
         }
@@ -374,7 +375,7 @@ public class Rooms extends javax.swing.JFrame {
              Rid = Rs.getInt(1)+1;
              
             
-        }catch(Exception e){
+        }catch(SQLException e){
             e.printStackTrace();           
         }
     }
