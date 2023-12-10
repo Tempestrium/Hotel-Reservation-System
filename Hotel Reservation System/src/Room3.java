@@ -84,6 +84,7 @@ public class Room3 extends javax.swing.JFrame {
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(1280, 720));
         setSize(new java.awt.Dimension(1280, 720));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,11 +109,6 @@ public class Room3 extends javax.swing.JFrame {
         BookNow.setFont(new java.awt.Font("Times New Roman", 1, 20)); // NOI18N
         BookNow.setText("Book Now");
         BookNow.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
-        BookNow.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BookNowActionPerformed(evt);
-            }
-        });
         jPanel5.add(BookNow, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 470, 130, 40));
 
         innerborder.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(204, 204, 204), 2));
@@ -221,13 +217,6 @@ public class Room3 extends javax.swing.JFrame {
         new Room4().setVisible(true);
         this.dispose();
     }//GEN-LAST:event_nextMouseClicked
-
-    private void BookNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookNowActionPerformed
-        // Redirects to Check In
-        Check_In Check_InPage =new Check_In();
-        Check_InPage.show();
-        dispose();
-    }//GEN-LAST:event_BookNowActionPerformed
 
     /**
      * @param args the command line arguments

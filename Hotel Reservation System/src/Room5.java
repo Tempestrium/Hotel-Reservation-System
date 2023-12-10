@@ -257,9 +257,9 @@ public class Room5 extends javax.swing.JFrame {
 
     private void BookNowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BookNowActionPerformed
         // directs to check-in
-        Check_In Check_InPage =new Check_In();
-        Check_InPage.show();
-        dispose();
+        //___ _ = new ___();
+        //_.setVisible(true);
+        //this.dispose();
     }//GEN-LAST:event_BookNowActionPerformed
 
     private void previousMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_previousMouseClicked
