@@ -598,11 +598,6 @@
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
-              <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="C:\Users\RENZ\Documents\NetBeansProjects\Check_In_Final\picture\398373496_665459882435747_4003610856221124408_n.png"/>
-                </Property>
-              </Properties>
             </Component>
           </SubComponents>
         </Container>

@@ -579,9 +579,9 @@ public class Check_In extends javax.swing.JFrame {
          
        
          try{
-            String query = "INSERT INTO `checkin`(`name`, `phone`, `email`, `address`, `city`, `nationality`, `gender`, `cardnumber`, `cvccode`, `roomtypeprice`, `roomnumber`, `checkin`, `checkout`, `additionals`) VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            String query = "INSERT INTO `checkin`(`name`, `phone`, `email`, `address`, `city`, `nationality`, `gender`, `cardnumber`, `cvccode`, `rooms`, `roomnum`, `checkin`, `checkout`, `additionals`, 'status') VALUES ( ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 'Pending')";
             
-            con = DriverManager.getConnection("jdbc:mysql://localhost/checkinform", "root", "");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/users", "root", "");
             
             pst = con.prepareStatement(query);
             pst.setString(1, jName.getText());

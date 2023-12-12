@@ -9,6 +9,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import java.sql.Statement;
+import java.sql.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.table.*;
 
 
 
@@ -17,22 +21,39 @@ import java.sql.Statement;
  * @author Kristine Vergara
  */
 public class Rooms extends javax.swing.JFrame {
-    Connection Con = null;
-    PreparedStatement Pst = null;
-    ResultSet Rs= null;
-    Statement St= null; 
-    private DBUtil DBUtil;
-    private final DBUtil DbUtil;
+    Connection Con;
+    PreparedStatement Pst;
+    ResultSet Rs;
+    Statement St; 
+    DefaultTableModel model;
+
     /**
      * Creates new form Rooms
 //     */
     public Rooms() {
         initComponents();
-        this.DbUtil = new DBUtil();
+        Connect();
         ShowRooms();
         
     
 
+    }
+    
+        
+    public void Connect(){
+        
+        try {
+            //Open Connection to MySQL
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users","root","");
+            
+        }catch(ClassNotFoundException ex){
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+            
+        }catch(SQLException ex){
+            Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
     }
     @SuppressWarnings("unchecked")
     
@@ -359,20 +380,25 @@ public class Rooms extends javax.swing.JFrame {
     }//GEN-LAST:event_EditBtnActionPerformed
 
     private void ShowRooms(){
-        try{
-             Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usertable","root","password");
-             St = (Statement) Con.createStatement();
-             Rs = St.executeQuery("select * from roomstbl");
-             RoomsList.setModel(DBUtil.resultSetToTable(Rs));
-        }catch (SQLException e){
-            e.printStackTrace(); 
+         try {
+            model = (DefaultTableModel) RoomsList.getModel();
+            model.setRowCount(0);
             
+            Pst = Con.prepareStatement("SELECT * FROM checkin");
+            Rs = Pst.executeQuery();
+            while (Rs.next()) {
+                model.addRow(new Object[]{Rs.getString("id"), Rs.getString("email"), Rs.getString("rooms"), Rs.getString("roomnum"), Rs.getString("additionals"), Rs.getString("status")});
+            }
+            
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex);
         }
     }
     int Rid;
     private void CountRooms(){
-        try{St = (Statement) Con.createStatement();
-             Rs = St.executeQuery("select Max(Rnum) from roomstbl");
+        try{
+             St = (Statement) Con.createStatement();
+             Rs = St.executeQuery("select Max(roomnum) from checkin");
              Rs.next();
              Rid = Rs.getInt(1)+1;
              
@@ -389,9 +415,9 @@ public class Rooms extends javax.swing.JFrame {
         }else{
             try{
                 CountRooms();
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usertable","root","password");
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users","root","password");
                 
-            try (PreparedStatement Save = Con.prepareStatement("insert into roomstbl values(?,?,?,?,?)")) {
+            try (PreparedStatement Save = Con.prepareStatement("insert into checkin values(?,?,?,?,?)")) {
                 Save.setInt(1, Rid);
                 Save.setString(2, RNameTb.getText().toString());
                 Save.setString(3, CategoryCb.getSelectedItem().toString());
@@ -418,9 +444,9 @@ int Key = 0;
         }else{
             try{
                 CountRooms();
-                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/usertable","root","password"); 
+                Con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users","root","password"); 
                 
-            try (PreparedStatement Save = Con.prepareStatement("delete from roomstbl where RNum =?")){
+            try (PreparedStatement Save = Con.prepareStatement("delete from checkin where roomnum =?")){
                 Save.setInt(1,Key);
                 int row = Save.executeUpdate();
                 JOptionPane.showMessageDialog(this, "Room Deleted.");
